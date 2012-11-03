@@ -14,7 +14,7 @@ Rottenpotatoes::Application.routes.draw do
   #   resources :products
   resources :movies do
     collection do
-      get 'same_director'
+      get 'similar'
     end
   end
 
