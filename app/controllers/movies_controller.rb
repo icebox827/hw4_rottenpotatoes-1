@@ -1,5 +1,14 @@
 class MoviesController < ApplicationController
 
+  def same_director
+      if params[:director] == nil then
+        flash[:notice] = "'Alien' has no director info"
+        redirect_to movies_path and return
+      end
+      
+  end
+  
+
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
