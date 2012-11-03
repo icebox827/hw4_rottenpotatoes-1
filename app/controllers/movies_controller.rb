@@ -1,15 +1,17 @@
 class MoviesController < ApplicationController
 
   def similar
-=begin
-      if params[:director] == nil then
-        flash[:notice] = "'Alien' has no director info"
+    
+      movie = Movie.find(params[:id])
+      
+
+      if movie.director.blank? then
+        flash[:notice] = %Q{'#{movie.title}' has no director info}
         redirect_to movies_path and return
       end
-=end
+
       
       @movies = Movie.get_similar(params[:id])
-      #debugger
       
   end
   
