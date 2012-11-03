@@ -8,13 +8,12 @@ Given /the following movies exist/ do |movies_table|
   end
 end
 
-# Make sure that one string (regexp) occurs before or after another one
-#   on the same page
-
-
-And /I fill in "(.*)" with "(.*)"/ do |field, value|
-  step %Q{I fill in "#{field}" with "#{value}"}
+Then /the director of "(.*)" should be "(.*)"/ do |e1, e2|
+  first = page.body.index(e1)
+  second = page.body.index(e2)
+  assert (first + second) > 0
 end
+
 
 #############################################################################3
 
